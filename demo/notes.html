@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mes notes — Sprint 14</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="card">
+  <h1>Mes notes — Sprint 14</h1>
+  <div class="toolbar">
+    <input type="text" id="new-title" placeholder="Titre de la nouvelle note">
+    <button type="button" id="add">Ajouter</button>
+    <button type="button" class="secondary" id="reset">Réinitialiser</button>
+  </div>
+  <div id="notes"></div>
+  <section class="trash">
+    <h2>Corbeille <span class="muted" id="trash-count"></span></h2>
+    <div id="trash"></div>
+    <div class="actions"><button type="button" class="danger small" id="empty">Vider la corbeille</button></div>
+  </section>
+</main>
+<script>
+const KEY = 'undo-demo-notes';
+const SEED = [
+  {id:1, title:'Préparer la démo client jeudi', text:'Slides 1-12, insister sur la partie sécurité. Prévoir le plan B si la wifi lâche.', done:false},
+  {id:2, title:'Relancer le fournisseur pour la facture #4521', text:'Échéance dépassée de 10 jours, contact : m.lefevre@fournisseur.fr', done:false},
+  {id:3, title:'Idée produit : export PDF annoté', text:'Demandé par 3 clients ce mois. Estimer avec Sarah. Peut-être un plugin.', done:false},
+  {id:4, title:'Réserver la salle pour la rétro', text:'Vendredi 15h, salle Jupiter.', done:true},
+  {id:5, title:'Lire le rapport d\'incident du 12/10', text:'Lien dans le canal #ops. Noter les actions correctives.', done:false},
+];
+let state = load();
+function load(){ try { const s = JSON.parse(localStorage.getItem(KEY)); if(s) return s; } catch(e){} return {notes: JSON.parse(JSON.stringify(SEED)), trash: [], next: 6}; }
+function save(){ localStorage.setItem(KEY, JSON.stringify(state)); render(); }
+function el(html){ const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstChild; }
+function render(){
+  const root = document.getElementById('notes'); root.innerHTML = '';
+  state.notes.forEach(n => {
+    const row = el(`<div class="note ${n.done?'done':''}" data-id="${n.id}">
+      <input type="checkbox" ${n.done?'checked':''} title="Terminé">
+      <div class="body"><div class="title">${n.title}</div><div class="text">${n.text}</div></div>
+      <button class="secondary small" data-act="delete">Supprimer</button>
+    </div>`);
+    row.querySelector('input').onchange = (e) => { n.done = e.target.checked; save(); };
+    row.querySelector('[data-act=delete]').onclick = () => { state.notes = state.notes.filter(x => x.id !== n.id); state.trash.unshift(n); save(); };
+    root.appendChild(row);
+  });
+  const tr = document.getElementById('trash'); tr.innerHTML = '';
+  document.getElementById('trash-count').textContent = state.trash.length ? `(${state.trash.length})` : '(vide)';
+  state.trash.forEach(n => {
+    const row = el(`<div class="note" data-id="${n.id}"><div class="body"><div class="title">${n.title}</div><div class="text">${n.text}</div></div><button class="small" data-act="restore">Restaurer</button></div>`);
+    row.querySelector('[data-act=restore]').onclick = () => { state.trash = state.trash.filter(x => x.id !== n.id); state.notes.push(n); state.notes.sort((a,b)=>a.id-b.id); save(); };
+    tr.appendChild(row);
+  });
+}
+document.getElementById('add').onclick = () => {
+  const t = document.getElementById('new-title'); if(!t.value.trim()) return;
+  state.notes.push({id: state.next++, title: t.value.trim(), text: '', done:false}); t.value=''; save();
+};
+document.getElementById('new-title').onkeydown = (e) => { if(e.key === 'Enter') document.getElementById('add').click(); };
+document.getElementById('empty').onclick = () => { if(confirm('Vider définitivement la corbeille ?')){ state.trash = []; save(); } };
+document.getElementById('reset').onclick = () => { localStorage.removeItem(KEY); state = load(); render(); };
+render();
+</script>
+</body>
+</html>

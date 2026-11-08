@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Déclarer un sinistre — Assur'Habitat Espace client</title><link rel="stylesheet" href="site.css">
+<style>:root{--brand:#1d4ed8}</style></head>
+<body>
+<header class="top"><div class="logo"><i>A</i>Assur'Habitat</div>
+  <nav><span>Mes contrats</span><span>Mes sinistres</span><span>Mes documents</span><span>Aide</span></nav>
+  <div class="user"><span class="session" id="session"></span><span>Camille Dupont</span><div class="avatar">CD</div></div></header>
+<div class="crumbs">Espace client › Mes sinistres › Dégât des eaux du 28/10 › Compléter le dossier</div>
+<main class="page">
+  <div id="alert" class="alert"></div>
+  <h1>Compléter votre dossier sinistre</h1>
+  <p class="lead">Contrat Habitation Confort · 12 rue des Lilas, 69003 Lyon</p>
+  <div class="steps"><span>1. Déclaration</span><span class="on">2. Expertise</span><span>3. Indemnisation</span></div>
+  <form id="form" autocomplete="off">
+    <div class="row">
+      <div><label for="dossier">Numéro de dossier</label><input type="text" id="dossier" name="dossier" data-label="numéro de dossier"></div>
+      <div><label for="date">Date du sinistre</label><input type="text" id="date" name="date" data-label="date du sinistre"></div>
+    </div>
+    <div class="row">
+      <div><label for="montant">Montant estimé par l'expert (€)</label><input type="text" id="montant" name="montant" data-label="montant"></div>
+      <div><label for="expert">Référence de l'expert</label><input type="text" id="expert" name="expert" data-label="référence de l'expert"></div>
+    </div>
+    <div class="actions"><button type="button" class="ghost">Enregistrer et continuer plus tard</button><button type="submit">Envoyer mon dossier</button></div>
+  </form>
+</main>
+<script>window.SENT_TEXT = 'Dossier transmis. Vous serez indemnisée sous 10 jours ouvrés.';</script>
+<script src="session.js"></script>
+</body></html>

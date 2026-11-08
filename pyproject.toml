@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "undo"
+version = "0.1.0"
+description = "Undo keeps a history of what happened on your Mac, and can act on it."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "openai>=1.40",
+    "pydantic>=2.5",
+    "python-dotenv>=1.0",
+    "requests>=2.31",
+    "mss>=9.0",
+    "Pillow>=10.0",
+    "imagehash>=4.3",
+    "pynput>=1.7",
+    "pyautogui>=0.9.54",
+    "sounddevice>=0.4.6",
+    "numpy>=1.26",
+    "rich>=13.0",
+    "websocket-client>=1.6",
+]
+
+[project.optional-dependencies]
+macos = [
+    "ocrmac>=1.0",
+    "pyobjc-framework-Cocoa>=10.0",
+    "pyobjc-framework-Quartz>=10.0",
+    "pyobjc-framework-ApplicationServices>=10.0",
+    "rumps>=0.4",
+]
+linux = ["pytesseract>=0.3"]
+holo-agent = ["hai-agents[desktop]>=1.2"]
+crm = ["PySide6>=6.6"]
+dev = ["pytest>=8.0", "pytest-timeout>=2.3"]
+
+[project.scripts]
+undo = "undo.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["undo*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+timeout = 60

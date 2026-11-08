@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Brasserie Lumière · Opportunité — Nexa CRM</title><link rel="stylesheet" href="site.css">
+<style>:root{--brand:#5b3fd6}
+.wrap{display:grid;grid-template-columns:210px 1fr;min-height:calc(100vh - 58px)}
+aside{background:#fff;border-right:1px solid var(--line);padding:18px 14px;font-size:14px}
+aside div{padding:7px 10px;border-radius:8px;color:var(--muted)} aside div.on{background:#f1edff;color:var(--brand);font-weight:600}
+.deal{display:flex;gap:28px;font-size:13px;color:var(--muted);margin:2px 0 14px}.deal b{color:var(--ink);font-weight:600}
+.page{margin:20px 28px 40px;max-width:880px}</style></head>
+<body>
+<header class="top"><div class="logo"><i>N</i>Nexa CRM</div>
+  <nav><span>Tableau de bord</span><span>Opportunités</span><span>Contacts</span><span>Rapports</span></nav>
+  <div class="user"><span class="session" id="session"></span><span>Thomas Leroy</span><div class="avatar">TL</div></div></header>
+<div class="wrap">
+<aside><div>Pipeline</div><div class="on">Opportunités</div><div>Activités</div><div>Devis</div><div>Comptes</div></aside>
+<main class="page">
+  <div id="alert" class="alert"></div>
+  <h1>Compte rendu de rendez-vous</h1>
+  <div class="deal"><span>Propriétaire <b>Thomas Leroy</b></span><span>Pipeline <b>Grands comptes</b></span><span>Rendez-vous <b>aujourd'hui, 10:30</b></span></div>
+  <form id="form" autocomplete="off">
+    <div class="row">
+      <div><label for="societe">Société</label><input type="text" id="societe" name="societe" data-label="société"></div>
+      <div><label for="contact">Interlocuteur</label><input type="text" id="contact" name="contact" data-label="interlocuteur"></div>
+    </div>
+    <div class="row">
+      <div><label for="montant">Montant estimé (€)</label><input type="text" id="montant" name="montant" data-label="montant"></div>
+      <div><label for="etape">Étape du pipeline</label>
+        <select id="etape" name="etape" data-label="étape"><option value=""></option><option>Découverte</option><option>Proposition envoyée</option><option>Négociation</option><option>Signé</option></select></div>
+    </div>
+    <label for="cr">Compte rendu</label>
+    <textarea id="cr" name="cr" style="min-height:120px" data-label="compte rendu"></textarea>
+    <label for="next">Prochaines étapes</label>
+    <textarea id="next" name="next" data-label="prochaines étapes"></textarea>
+    <div class="actions"><button type="button" class="ghost">Annuler</button><button type="submit">Enregistrer l'activité</button></div>
+  </form>
+</main></div>
+<script>window.EXPIRED_TEXT = 'Vous avez été déconnecté pour inactivité. Les modifications non enregistrées ont été perdues.'; window.SENT_TEXT = 'Activité enregistrée sur l\'opportunité.';</script>
+<script src="session.js"></script>
+</body></html>

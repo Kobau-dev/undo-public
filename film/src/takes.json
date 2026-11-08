@@ -1,0 +1,284 @@
+{
+ "mail_a": {
+  "take": "mail_a_1",
+  "t0": 1794133963.6484718,
+  "clock": "11:32",
+  "marks": {
+   "rec_start": 1.2,
+   "mail_open": 3.98,
+   "read": 17.88
+  },
+  "clicks": [
+   3.88
+  ],
+  "steps": [],
+  "keys": [],
+  "events": {},
+  "act": null,
+  "duration": 19.333335
+ },
+ "crm": {
+  "take": "crm_2",
+  "t0": 1794135615.8025868,
+  "clock": "12:00",
+  "marks": {
+   "rec_start": 1.21,
+   "form_filled": 63.16,
+   "session_expired": 64.73,
+   "login": 70.75,
+   "hotkey": 78.57,
+   "voice_start": 80.01,
+   "voice_end": 87.54,
+   "in_the_box": 90.68,
+   "request_sent": 92.55,
+   "done": 119.5
+  },
+  "clicks": [
+   3.03,
+   5.06,
+   7.13,
+   8.76,
+   11.64,
+   42.81,
+   51.05,
+   52.67,
+   54.3,
+   57.92,
+   61.6,
+   68.51,
+   70.66
+  ],
+  "steps": [],
+  "keys": [],
+  "events": {},
+  "act": 104.2,
+  "duration": 124.033334
+ },
+ "blender": {
+  "take": "blender_1",
+  "t0": 1794135083.635854,
+  "clock": "11:51",
+  "marks": {
+   "rec_start": 1.2,
+   "villa_done": 34.33,
+   "hotkey": 39.09,
+   "voice_start": 40.53,
+   "voice_end": 50.46,
+   "in_the_box": 53.48,
+   "request_sent": 55.36,
+   "done": 85.83
+  },
+  "clicks": [],
+  "steps": [
+   {
+    "t": 68.36,
+    "step": "2.1",
+    "what": "key cmd+z"
+   },
+   {
+    "t": 68.61,
+    "step": "2.2",
+    "what": "key cmd+z"
+   },
+   {
+    "t": 68.86,
+    "step": "2.3",
+    "what": "key cmd+z"
+   },
+   {
+    "t": 69.11,
+    "step": "2.4",
+    "what": "key cmd+z"
+   },
+   {
+    "t": 69.36,
+    "step": "2.5",
+    "what": "key cmd+z"
+   },
+   {
+    "t": 69.86,
+    "step": "2.6",
+    "what": "key cmd+z"
+   },
+   {
+    "t": 72.36,
+    "step": "3.1",
+    "what": "wait 1.0s"
+   },
+   {
+    "t": 73.36,
+    "step": "3.2",
+    "what": "key cmd+c"
+   },
+   {
+    "t": 76.36,
+    "step": "4.1",
+    "what": "key cmd+shift+z"
+   },
+   {
+    "t": 76.86,
+    "step": "4.2",
+    "what": "key cmd+shift+z"
+   },
+   {
+    "t": 77.36,
+    "step": "4.3",
+    "what": "key cmd+shift+z"
+   },
+   {
+    "t": 77.61,
+    "step": "4.4",
+    "what": "key cmd+shift+z"
+   },
+   {
+    "t": 77.86,
+    "step": "4.5",
+    "what": "key cmd+shift+z"
+   },
+   {
+    "t": 78.11,
+    "step": "4.6",
+    "what": "key cmd+shift+z"
+   },
+   {
+    "t": 78.36,
+    "step": "4.7",
+    "what": "key cmd+shift+z"
+   },
+   {
+    "t": 78.86,
+    "step": "4.8",
+    "what": "key cmd+shift+z"
+   },
+   {
+    "t": 81.36,
+    "step": "5.1",
+    "what": "move (150,650) Move over grass area"
+   },
+   {
+    "t": 81.86,
+    "step": "5.2",
+    "what": "wait 1.0s"
+   },
+   {
+    "t": 82.36,
+    "step": "5.3",
+    "what": "key cmd+v"
+   }
+  ],
+  "keys": [
+   {
+    "t": 68.36,
+    "label": "⌘Z"
+   },
+   {
+    "t": 68.61,
+    "label": "⌘Z"
+   },
+   {
+    "t": 68.86,
+    "label": "⌘Z"
+   },
+   {
+    "t": 69.11,
+    "label": "⌘Z"
+   },
+   {
+    "t": 69.36,
+    "label": "⌘Z"
+   },
+   {
+    "t": 69.86,
+    "label": "⌘Z"
+   },
+   {
+    "t": 73.36,
+    "label": "⌘C"
+   },
+   {
+    "t": 76.36,
+    "label": "⇧⌘Z"
+   },
+   {
+    "t": 76.86,
+    "label": "⇧⌘Z"
+   },
+   {
+    "t": 77.36,
+    "label": "⇧⌘Z"
+   },
+   {
+    "t": 77.61,
+    "label": "⇧⌘Z"
+   },
+   {
+    "t": 77.86,
+    "label": "⇧⌘Z"
+   },
+   {
+    "t": 78.11,
+    "label": "⇧⌘Z"
+   },
+   {
+    "t": 78.36,
+    "label": "⇧⌘Z"
+   },
+   {
+    "t": 78.86,
+    "label": "⇧⌘Z"
+   },
+   {
+    "t": 82.36,
+    "label": "⌘V"
+   }
+  ],
+  "events": {
+   "start": 6.45,
+   "step 0 Add Plane": 6.96,
+   "step 1 Add Cube": 8.41,
+   "step 2 Add Cube": 9.85,
+   "step 3 Add Boolean Modifier": 11.31,
+   "step 4 Add Cube": 12.75,
+   "step 5 Add Cylinder": 14.11,
+   "step 6 Add Array Modifier": 15.73,
+   "step 7 Add Cube": 16.95,
+   "step 8 Boolean": 18.51,
+   "step 9 Add Array Modifier": 19.95,
+   "step 10 Material: White plaster": 21.31,
+   "step 11 Material: Larch": 22.72,
+   "step 12 Select": 24.75,
+   "step 13 Delete": 25.8,
+   "step 14 Add Cube": 28.06,
+   "step 15 Add Ico Sphere": 29.71,
+   "step 16 Material: Charred wood": 31.42,
+   "step 17 Add Sun": 32.86,
+   "step 18 Add Camera": 34.2,
+   "done": 34.2
+  },
+  "act": 61.36,
+  "duration": 90.333334
+ },
+ "mail_b": {
+  "take": "mail_b_2",
+  "t0": 1794135504.436833,
+  "clock": "11:58",
+  "marks": {
+   "rec_start": 1.21,
+   "description": 5.12,
+   "hotkey": 7.75,
+   "voice_start": 9.19,
+   "voice_end": 19.44,
+   "in_the_box": 22.15,
+   "request_sent": 24.03,
+   "done": 39.78
+  },
+  "clicks": [
+   5.04
+  ],
+  "steps": [],
+  "keys": [],
+  "events": {},
+  "act": 30.56,
+  "duration": 45.300001
+ }
+}

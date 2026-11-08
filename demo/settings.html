@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Paramètres d'export — Studio Export · Cadre</title><link rel="stylesheet" href="site.css">
+<style>:root{--brand:#0f172a}
+.wrap{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 58px)}
+aside{background:#fff;border-right:1px solid var(--line);padding:18px 14px;font-size:14px}
+aside div{padding:7px 10px;border-radius:8px;color:var(--muted)} aside div.on{background:#eef2ff;color:#3730a3;font-weight:600}
+.page{margin:20px 28px 40px;max-width:820px}
+.alert{display:block}
+.setting{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.setting .desc{font-size:13px;color:var(--muted)} .setting select{width:210px;margin:0}
+.switch{position:relative;width:44px;height:24px;display:inline-block;margin:0}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;inset:0;background:#d0d5dd;border-radius:24px;transition:.15s}
+.slider:before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.15s}
+.switch input:checked+.slider{background:#4f46e5}.switch input:checked+.slider:before{transform:translateX(20px)}</style></head>
+<body>
+<header class="top"><div class="logo"><i>C</i>Cadre</div>
+  <nav><span>Projets</span><span>Médias</span><span>Équipe</span></nav>
+  <div class="user"><span>Studio Export · Lumen Films</span><div class="avatar">LF</div></div></header>
+<div class="wrap">
+<aside><div>Général</div><div class="on">Export</div><div>Stockage</div><div>Membres</div><div>Facturation</div></aside>
+<main class="page">
+  <div id="banner" class="alert ok">Tout fonctionne. Aperçu rendu en 42 ms.</div>
+  <h1>Paramètres d'export</h1>
+  <p class="lead">S'applique à tous les exports du projet « Lancement printemps ». Certaines combinaisons ne sont pas supportées par le moteur de rendu.</p>
+  <div id="settings"></div>
+</main></div>
+<script>
+const DEFAULTS = {
+  hw_accel:   {label:'Accélération matérielle', desc:'Utiliser le GPU pour le rendu', type:'toggle', value:true},
+  hdr:        {label:'Sortie HDR',               desc:'Rendu en plage dynamique étendue', type:'toggle', value:false},
+  proxy:      {label:'Fichiers proxy',           desc:'Utiliser des proxys basse résolution pour l\'aperçu', type:'toggle', value:true},
+  autosave:   {label:'Sauvegarde automatique',   desc:'Toutes les 2 minutes', type:'toggle', value:true},
+  watermark:  {label:'Filigrane',                desc:'Ajouter le logo du studio', type:'toggle', value:false},
+  loudness:   {label:'Normalisation audio',      desc:'-14 LUFS (plateformes de streaming)', type:'toggle', value:true},
+  codec:      {label:'Codec',                    desc:'Format d\'encodage de la vidéo', type:'select', value:'H.264', options:['H.264','H.265 (HEVC)','ProRes 422','AV1']},
+  resolution: {label:'Résolution',               desc:'Taille de la sortie', type:'select', value:'1920×1080', options:['1280×720','1920×1080','3840×2160 (4K)','7680×4320 (8K)']},
+  fps:        {label:'Images par seconde',       desc:'Cadence de la sortie', type:'select', value:'25', options:['24','25','30','50','60','120']},
+  color:      {label:'Espace colorimétrique',    desc:'Profil de couleur de la sortie', type:'select', value:'Rec. 709', options:['Rec. 709','Rec. 2020','DCI-P3','sRGB']},
+  language:   {label:'Langue de l\'interface',   desc:'Redémarrage requis', type:'select', value:'Français', options:['Français','English','Deutsch','Español']},
+};
+const KEY = 'undo-demo-settings';
+let state = load();
+function load(){ try { const s = JSON.parse(localStorage.getItem(KEY)); if(s) return s; } catch(e){} return Object.fromEntries(Object.entries(DEFAULTS).map(([k,v]) => [k, v.value])); }
+function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
+function render(){
+  const root = document.getElementById('settings'); root.innerHTML = '';
+  for(const [k, def] of Object.entries(DEFAULTS)){
+    const row = document.createElement('div'); row.className = 'setting';
+    const left = document.createElement('div'); left.innerHTML = `<div>${def.label}</div><div class="desc">${def.desc}</div>`;
+    row.appendChild(left);
+    if(def.type === 'toggle'){
+      const sw = document.createElement('label'); sw.className = 'switch';
+      sw.innerHTML = `<input type="checkbox" id="${k}" ${state[k] ? 'checked':''}><span class="slider"></span>`;
+      sw.querySelector('input').onchange = (e) => { state[k] = e.target.checked; save(); check(); };
+      row.appendChild(sw);
+    } else {
+      const sel = document.createElement('select'); sel.id = k;
+      def.options.forEach(o => { const opt = document.createElement('option'); opt.textContent = o; opt.selected = (o === state[k]); sel.appendChild(opt); });
+      sel.onchange = (e) => { state[k] = e.target.value; save(); check(); };
+      row.appendChild(sel);
+    }
+    root.appendChild(row);
+  }
+  check();
+}
+function check(){
+  const b = document.getElementById('banner');
+  const problems = [];
+  if(state.hdr && state.codec === 'H.264') problems.push('Le HDR n\'est pas supporté avec le codec H.264.');
+  if(state.resolution.startsWith('7680') && state.hw_accel === false) problems.push('Le 8K nécessite l\'accélération matérielle.');
+  if(state.fps === '120' && state.codec.startsWith('ProRes')) problems.push('ProRes ne supporte pas 120 i/s.');
+  if(state.color === 'Rec. 2020' && !state.hdr) problems.push('Rec. 2020 sans HDR produit des couleurs délavées.');
+  if(problems.length){ b.className = 'alert error'; b.textContent = 'Erreur de rendu : ' + problems.join(' '); }
+  else { b.className = 'alert ok'; b.textContent = 'Tout fonctionne. Aperçu rendu en 42 ms.'; }
+}
+document.addEventListener('keydown', (e) => { if (e.ctrlKey && e.shiftKey && e.code === 'KeyR') { e.preventDefault(); localStorage.removeItem(KEY); state = load(); render(); } }); // hidden reset
+render();
+</script>
+</body>
+</html>

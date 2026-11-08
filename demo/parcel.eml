@@ -1,0 +1,69 @@
+From: Maison du Lit <orders@maisondulit-exemple.fr>
+To: Camille Dupont <camille.dupont@example.com>
+Subject: Your order MDL-20261018-4472 is on its way
+Date: Tue, 20 Oct 2026 08:41:00 +0200
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="mdl-boundary"
+
+--mdl-boundary
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Hi Camille,
+
+Good news: your order has been handed over to the carrier.
+
+Order number: MDL-20261018-4472
+Order date: October 18, 2026
+Item: "Nuage" memory foam mattress, 140x190
+Amount paid: €389.00
+Carrier: Colis Express, tracking no. CE-77-4410-928
+Expected delivery: between October 23 and 27, 2026
+
+Delivery address: Camille Dupont, 14 rue des Lilas, 69003 Lyon
+
+The Maison du Lit team
+
+--mdl-boundary
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light"></head>
+<body style="margin:0;padding:0;background:#f3efe9;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3efe9;padding:28px 0;font-family:-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif;color:#2b2622;">
+<tr><td align="center">
+<table role="presentation" width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:14px;overflow:hidden;">
+  <tr><td style="background:#2f3e46;padding:22px 32px;">
+    <span style="font-size:22px;font-weight:700;color:#ffffff;letter-spacing:.5px;">Maison du Lit</span>
+    <span style="float:right;font-size:13px;color:#cad2c5;line-height:30px;">Order tracking</span>
+  </td></tr>
+  <tr><td style="padding:30px 32px 6px;">
+    <div style="font-size:24px;font-weight:700;margin-bottom:10px;">Your order is on its way 🚚</div>
+    <div style="font-size:15px;line-height:22px;color:#5b534c;">Hi Camille, good news: your order has been handed over to the carrier.</div>
+  </td></tr>
+  <tr><td style="padding:18px 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8f6f3;border-radius:10px;font-size:15px;">
+      <tr><td style="padding:14px 18px 6px;color:#8a8079;">Order number</td><td align="right" style="padding:14px 18px 6px;font-weight:700;">MDL-20261018-4472</td></tr>
+      <tr><td style="padding:6px 18px;color:#8a8079;">Order date</td><td align="right" style="padding:6px 18px;">October 18, 2026</td></tr>
+      <tr><td style="padding:6px 18px;color:#8a8079;">Item</td><td align="right" style="padding:6px 18px;">&quot;Nuage&quot; memory foam mattress, 140x190</td></tr>
+      <tr><td style="padding:6px 18px 14px;color:#8a8079;">Amount paid</td><td align="right" style="padding:6px 18px 14px;font-weight:700;">€389.00</td></tr>
+    </table>
+  </td></tr>
+  <tr><td style="padding:4px 32px 8px;font-size:15px;line-height:23px;">
+    <b>Carrier:</b> Colis Express<br>
+    <b>Tracking no.:</b> CE-77-4410-928<br>
+    <b>Expected delivery:</b> between October 23 and 27, 2026
+  </td></tr>
+  <tr><td style="padding:16px 32px 8px;">
+    <span style="display:inline-block;background:#52796f;color:#ffffff;font-size:15px;font-weight:600;padding:12px 22px;border-radius:8px;">Track my parcel</span>
+  </td></tr>
+  <tr><td style="padding:16px 32px 26px;font-size:14px;line-height:21px;color:#5b534c;">
+    <b style="color:#2b2622;">Delivery address</b><br>Camille Dupont · 14 rue des Lilas · 69003 Lyon
+  </td></tr>
+  <tr><td style="background:#f8f6f3;padding:16px 32px;font-size:12px;color:#8a8079;">A question? Reply to this email with your order number. — The Maison du Lit team</td></tr>
+</table>
+</td></tr></table>
+</body></html>
+
+--mdl-boundary--

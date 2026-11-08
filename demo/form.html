@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Demande de passeport — Mon Espace Démarches</title><link rel="stylesheet" href="site.css">
+<style>:root{--brand:#123a8f}</style></head>
+<body>
+<header class="top"><div class="logo"><i>MD</i>Mon Espace Démarches</div>
+  <nav><span>Mes démarches</span><span>Mes documents</span><span>Mes rendez-vous</span></nav>
+  <div class="user"><span class="session" id="session"></span><span>Camille Dupont</span><div class="avatar">CD</div></div></header>
+<div class="crumbs">Accueil › Papiers d'identité › Passeport › Pré-demande en ligne</div>
+<main class="page">
+  <div id="alert" class="alert"></div>
+  <h1>Pré-demande de passeport</h1>
+  <p class="lead">Renseignez vos informations. Vous recevrez un numéro de pré-demande à présenter en mairie.</p>
+  <div class="steps"><span>1. Identité</span><span class="on">2. Votre demande</span><span>3. Rendez-vous</span></div>
+  <form id="form" autocomplete="off">
+    <div class="row">
+      <div><label for="nom">Nom de naissance</label><input type="text" id="nom" name="nom" data-label="nom"></div>
+      <div><label for="prenom">Prénom(s)</label><input type="text" id="prenom" name="prenom" data-label="prénom"></div>
+    </div>
+    <div class="row">
+      <div><label for="naissance">Date de naissance</label><input type="text" id="naissance" name="naissance" data-label="date de naissance"><div class="hint">Format JJ/MM/AAAA</div></div>
+      <div><label for="email">Adresse électronique</label><input type="email" id="email" name="email" data-label="email"></div>
+    </div>
+    <label for="adresse">Adresse du domicile</label>
+    <input type="text" id="adresse" name="adresse" data-label="adresse">
+    <label for="objet">Type de demande</label>
+    <select id="objet" name="objet" data-label="type de demande">
+      <option value=""></option><option>Renouvellement de passeport</option><option>Première demande de passeport</option>
+      <option>Passeport perdu ou volé</option><option>Changement d'état civil</option>
+    </select>
+    <label for="motif">Précisions sur votre situation</label>
+    <textarea id="motif" name="motif" data-label="précisions"></textarea>
+    <label for="pieces">Justificatifs que vous apporterez</label>
+    <textarea id="pieces" name="pieces" data-label="justificatifs"></textarea>
+    <div class="actions"><button type="button" class="ghost">Enregistrer le brouillon</button><button type="submit">Valider et choisir un rendez-vous</button></div>
+  </form>
+</main>
+<script>window.SENT_TEXT = 'Pré-demande enregistrée : n° PD-2026-04817. Choisissez maintenant votre rendez-vous.';</script>
+<script src="session.js"></script>
+</body></html>
